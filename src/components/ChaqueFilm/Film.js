@@ -8,8 +8,10 @@ function Film() {
   const { id } = useParams();
   const [film, setFilm] = useState(null);
   const [userRating, setUserRating] = useState(0);
+  const starsValues = [1, 2, 3, 4, 5];
 
   const urlFilm = `https://four1f-tp1-rodriguesyasmin.onrender.com/api/films/${id}`;
+  // const urlFilm = `https://four1f-tp1-collren.onrender.com/api/films/${id}`;
 
   useEffect(() => {
     fetch(urlFilm)
@@ -145,11 +147,11 @@ function Film() {
           <p>Description: {film.description}</p>
           <p>Notes: {film.notes ? film.notes.join(", ") : "Pas encore noté"}</p>
           <div>
-            {[1, 2, 3, 4, 5].map((value) => (
+            {starsValues.map((value) => (
               <Star
                 key={value}
-                filled={value <= userRating}
-                onClick={() => setUserRating(value)}
+                filled={value <= userRating} // bool
+                onClickHandleSetUserRating={() => setUserRating(value)} //onClickHandleSetUserRating(value)
               />
             ))}
           </div>

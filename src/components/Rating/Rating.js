@@ -1,12 +1,12 @@
 import React from "react";
 
-function Star({ filled, onClick }) {
+function Star(props) {
   return (
     <span
-      onClick={onClick}
+      onClick={props.onClickHandleSetUserRating}
       style={{
         cursor: "pointer",
-        color: filled ? "#ffc107" : "#e4e5e9",
+        color: props.filled ? "#ffc107" : "#e4e5e9",
         fontSize: "20px",
       }}
     >
